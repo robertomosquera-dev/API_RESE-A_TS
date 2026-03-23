@@ -1,0 +1,70 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String?
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isEnable  Boolean  @default(true)
+  reviews   Review[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  content   String
+  score     Int      
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isEnable  Boolean  @default(true)
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+
+  @@unique([userId, movieId]) 
+}
+
+model Movie {
+  id        Int      @id @default(autoincrement()) 
+  title     String   @unique
+  synopsis  String?  @default("Sin sinopsis")     
+  duration  Int?     
+  year      Int?     
+  rating    Float?   
+  url       String?
+  isEnable  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  actors    Actor[]
+  reviews   Review[]
+  genres    Genre[]
+}
+
+model Actor {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  isEnable  Boolean  @default(true)
+  birthDate DateTime?
+  createdAt DateTime @default(now())
+  movies    Movie[]
+}
+
+model Genre {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  isEnable  Boolean @default(true)
+  movies Movie[]
+}
