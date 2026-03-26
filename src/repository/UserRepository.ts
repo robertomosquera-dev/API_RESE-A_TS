@@ -8,7 +8,7 @@ export default class UserRepository implements RepositoryInterface<UserModel,num
     async save(entity: UserModel): Promise<UserModel | null> {
         throw new Error("Method not implemented.");
     }
-    async saveAll(entities: UserModel[]): Promise<UserModel[] | null> {
+    async saveAll(entities: UserModel[]): Promise<number | null> {
         throw new Error("Method not implemented.");
     }
     async findById(id: number): Promise<UserModel | null> {

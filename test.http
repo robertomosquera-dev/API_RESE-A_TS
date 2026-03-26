@@ -1,0 +1,11 @@
+###
+POST http://localhost:6070/api/actor/
+Content-Type: application/json
+
+{
+  "firstName": "Roberto",
+  "lastName": "Alonso",
+  "birthDate": "2004-06-07"
+}
+
+###

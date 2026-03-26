@@ -46,6 +46,7 @@ export type ReviewMinAggregateOutputType = {
   score: number | null
   createdAt: Date | null
   updatedAt: Date | null
+  isEnable: boolean | null
   movieId: number | null
   userId: number | null
 }
@@ -56,6 +57,7 @@ export type ReviewMaxAggregateOutputType = {
   score: number | null
   createdAt: Date | null
   updatedAt: Date | null
+  isEnable: boolean | null
   movieId: number | null
   userId: number | null
 }
@@ -66,6 +68,7 @@ export type ReviewCountAggregateOutputType = {
   score: number
   createdAt: number
   updatedAt: number
+  isEnable: number
   movieId: number
   userId: number
   _all: number
@@ -92,6 +95,7 @@ export type ReviewMinAggregateInputType = {
   score?: true
   createdAt?: true
   updatedAt?: true
+  isEnable?: true
   movieId?: true
   userId?: true
 }
@@ -102,6 +106,7 @@ export type ReviewMaxAggregateInputType = {
   score?: true
   createdAt?: true
   updatedAt?: true
+  isEnable?: true
   movieId?: true
   userId?: true
 }
@@ -112,6 +117,7 @@ export type ReviewCountAggregateInputType = {
   score?: true
   createdAt?: true
   updatedAt?: true
+  isEnable?: true
   movieId?: true
   userId?: true
   _all?: true
@@ -209,6 +215,7 @@ export type ReviewGroupByOutputType = {
   score: number
   createdAt: Date
   updatedAt: Date
+  isEnable: boolean
   movieId: number
   userId: number
   _count: ReviewCountAggregateOutputType | null
@@ -242,6 +249,7 @@ export type ReviewWhereInput = {
   score?: Prisma.IntFilter<"Review"> | number
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+  isEnable?: Prisma.BoolFilter<"Review"> | boolean
   movieId?: Prisma.IntFilter<"Review"> | number
   userId?: Prisma.IntFilter<"Review"> | number
   movie?: Prisma.XOR<Prisma.MovieScalarRelationFilter, Prisma.MovieWhereInput>
@@ -254,6 +262,7 @@ export type ReviewOrderByWithRelationInput = {
   score?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movieId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   movie?: Prisma.MovieOrderByWithRelationInput
@@ -270,6 +279,7 @@ export type ReviewWhereUniqueInput = Prisma.AtLeast<{
   score?: Prisma.IntFilter<"Review"> | number
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+  isEnable?: Prisma.BoolFilter<"Review"> | boolean
   movieId?: Prisma.IntFilter<"Review"> | number
   userId?: Prisma.IntFilter<"Review"> | number
   movie?: Prisma.XOR<Prisma.MovieScalarRelationFilter, Prisma.MovieWhereInput>
@@ -282,6 +292,7 @@ export type ReviewOrderByWithAggregationInput = {
   score?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movieId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   _count?: Prisma.ReviewCountOrderByAggregateInput
@@ -300,6 +311,7 @@ export type ReviewScalarWhereWithAggregatesInput = {
   score?: Prisma.IntWithAggregatesFilter<"Review"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
+  isEnable?: Prisma.BoolWithAggregatesFilter<"Review"> | boolean
   movieId?: Prisma.IntWithAggregatesFilter<"Review"> | number
   userId?: Prisma.IntWithAggregatesFilter<"Review"> | number
 }
@@ -309,6 +321,7 @@ export type ReviewCreateInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movie: Prisma.MovieCreateNestedOneWithoutReviewsInput
   user: Prisma.UserCreateNestedOneWithoutReviewsInput
 }
@@ -319,6 +332,7 @@ export type ReviewUncheckedCreateInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movieId: number
   userId: number
 }
@@ -328,6 +342,7 @@ export type ReviewUpdateInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movie?: Prisma.MovieUpdateOneRequiredWithoutReviewsNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
 }
@@ -338,6 +353,7 @@ export type ReviewUncheckedUpdateInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movieId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -348,6 +364,7 @@ export type ReviewCreateManyInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movieId: number
   userId: number
 }
@@ -357,6 +374,7 @@ export type ReviewUpdateManyMutationInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type ReviewUncheckedUpdateManyInput = {
@@ -365,6 +383,7 @@ export type ReviewUncheckedUpdateManyInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movieId?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -390,6 +409,7 @@ export type ReviewCountOrderByAggregateInput = {
   score?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movieId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
@@ -407,6 +427,7 @@ export type ReviewMaxOrderByAggregateInput = {
   score?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movieId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
@@ -417,6 +438,7 @@ export type ReviewMinOrderByAggregateInput = {
   score?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movieId?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
@@ -517,6 +539,7 @@ export type ReviewCreateWithoutUserInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movie: Prisma.MovieCreateNestedOneWithoutReviewsInput
 }
 
@@ -526,6 +549,7 @@ export type ReviewUncheckedCreateWithoutUserInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movieId: number
 }
 
@@ -564,6 +588,7 @@ export type ReviewScalarWhereInput = {
   score?: Prisma.IntFilter<"Review"> | number
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+  isEnable?: Prisma.BoolFilter<"Review"> | boolean
   movieId?: Prisma.IntFilter<"Review"> | number
   userId?: Prisma.IntFilter<"Review"> | number
 }
@@ -573,6 +598,7 @@ export type ReviewCreateWithoutMovieInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   user: Prisma.UserCreateNestedOneWithoutReviewsInput
 }
 
@@ -582,6 +608,7 @@ export type ReviewUncheckedCreateWithoutMovieInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   userId: number
 }
 
@@ -617,6 +644,7 @@ export type ReviewCreateManyUserInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   movieId: number
 }
 
@@ -625,6 +653,7 @@ export type ReviewUpdateWithoutUserInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movie?: Prisma.MovieUpdateOneRequiredWithoutReviewsNestedInput
 }
 
@@ -634,6 +663,7 @@ export type ReviewUncheckedUpdateWithoutUserInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movieId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -643,6 +673,7 @@ export type ReviewUncheckedUpdateManyWithoutUserInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movieId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -652,6 +683,7 @@ export type ReviewCreateManyMovieInput = {
   score: number
   createdAt?: Date | string
   updatedAt?: Date | string
+  isEnable?: boolean
   userId: number
 }
 
@@ -660,6 +692,7 @@ export type ReviewUpdateWithoutMovieInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   user?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
 }
 
@@ -669,6 +702,7 @@ export type ReviewUncheckedUpdateWithoutMovieInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -678,6 +712,7 @@ export type ReviewUncheckedUpdateManyWithoutMovieInput = {
   score?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -689,6 +724,7 @@ export type ReviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   score?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isEnable?: boolean
   movieId?: boolean
   userId?: boolean
   movie?: boolean | Prisma.MovieDefaultArgs<ExtArgs>
@@ -701,6 +737,7 @@ export type ReviewSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   score?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isEnable?: boolean
   movieId?: boolean
   userId?: boolean
   movie?: boolean | Prisma.MovieDefaultArgs<ExtArgs>
@@ -713,6 +750,7 @@ export type ReviewSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   score?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isEnable?: boolean
   movieId?: boolean
   userId?: boolean
   movie?: boolean | Prisma.MovieDefaultArgs<ExtArgs>
@@ -725,11 +763,12 @@ export type ReviewSelectScalar = {
   score?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isEnable?: boolean
   movieId?: boolean
   userId?: boolean
 }
 
-export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "content" | "score" | "createdAt" | "updatedAt" | "movieId" | "userId", ExtArgs["result"]["review"]>
+export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "content" | "score" | "createdAt" | "updatedAt" | "isEnable" | "movieId" | "userId", ExtArgs["result"]["review"]>
 export type ReviewInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   movie?: boolean | Prisma.MovieDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -755,6 +794,7 @@ export type $ReviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     score: number
     createdAt: Date
     updatedAt: Date
+    isEnable: boolean
     movieId: number
     userId: number
   }, ExtArgs["result"]["review"]>
@@ -1187,6 +1227,7 @@ export interface ReviewFieldRefs {
   readonly score: Prisma.FieldRef<"Review", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Review", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Review", 'DateTime'>
+  readonly isEnable: Prisma.FieldRef<"Review", 'Boolean'>
   readonly movieId: Prisma.FieldRef<"Review", 'Int'>
   readonly userId: Prisma.FieldRef<"Review", 'Int'>
 }

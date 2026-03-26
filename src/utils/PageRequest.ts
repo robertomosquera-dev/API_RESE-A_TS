@@ -1,4 +1,4 @@
-type OrderPage = "ASC" | "DESC";
+type OrderPage = "asc" | "desc";
 
 export type PageRequest<Filter> = {
   page:   number;

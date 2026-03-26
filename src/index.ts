@@ -4,6 +4,7 @@ import { MessageError } from "./exception/errors/MessageError.js";
 import morgan from "morgan";
 import BusinessError from "./exception/errors/BusinessError.js";
 import { HttpStatus } from "./utils/api.response.js";
+import ActorRoutes from "./routes/actor.routes.js";
 
 const app = Express();
 
@@ -11,13 +12,7 @@ app.use(Express.json());
 
 app.use(morgan('dev'))
 
-app.get("/test", (req: Request, res: Response, next: NextFunction) => {
-  try {
-    throw new BusinessError(HttpStatus.NOT_FOUND, MessageError.MOVIE_NOT_FOUND);
-  } catch (err) {
-    next(err); 
-  }
-});
+app.use('/api/actor', ActorRoutes);
 
 app.use(errorHandler);
 

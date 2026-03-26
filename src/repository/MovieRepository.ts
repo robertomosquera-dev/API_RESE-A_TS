@@ -8,7 +8,7 @@ export default class MovieRepository implements RepositoryInterface<MovieModel,n
     async save(entity: MovieModel): Promise<MovieModel | null> {
         throw new Error("Method not implemented.");
     }
-    async saveAll(entities: MovieModel[]): Promise<MovieModel[] | null> {
+    async saveAll(entities: MovieModel[]): Promise<number | null> {
         throw new Error("Method not implemented.");
     }
     async findById(id: number): Promise<MovieModel | null> {

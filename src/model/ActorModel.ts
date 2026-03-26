@@ -6,7 +6,7 @@ export type ActorType = {
   isEnable: boolean;
   birthDate: Date | null;
   createdAt: Date;
-}; 
+};
 
 export default class Actor {
   private id: number;
@@ -17,38 +17,25 @@ export default class Actor {
   private createdAt: Date;
 
   constructor(
-    id: number,
-    firstName: string,
-    lastName: string,
-    isEnable: boolean,
-    birthDate: Date | null,
-    createdAt: Date,
+      id: number | null,
+      firstName: string,
+      lastName: string,
+      isEnable: boolean | null,
+      birthDate: Date | null,
+      createdAt: Date | null
   ) {
-    this.id = id;
+    this.id = id ?? 0; // temporal, lo reemplaza la BD
     this.firstName = firstName;
     this.lastName = lastName;
-    this.isEnable = isEnable;
-    this.birthDate = birthDate;
-    this.createdAt = createdAt;
+    this.isEnable = isEnable ?? true; // por defecto true
+    this.birthDate = birthDate ?? null;
+    this.createdAt = createdAt ?? new Date(); // por defecto ahora
   }
 
   getId(): number { return this.id; }
-  setId(id: number): void { this.id = id; }
-
   getFirstName(): string { return this.firstName; }
-  setFirstName(firstName: string): void { this.firstName = firstName; }
-
   getLastName(): string { return this.lastName; }
-  setLastName(lastName: string): void { this.lastName = lastName; }
-
   getIsEnable(): boolean { return this.isEnable; }
-  setIsEnable(isEnable: boolean): void { this.isEnable = isEnable; }
-
   getBirthDate(): Date | null { return this.birthDate; }
-  setBirthDate(birthDate: Date | null): void { this.birthDate = birthDate; }
-
   getCreatedAt(): Date { return this.createdAt; }
-  setCreatedAt(createdAt: Date): void { this.createdAt = createdAt; }
-
-
 }

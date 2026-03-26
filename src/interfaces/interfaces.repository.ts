@@ -2,7 +2,7 @@ import type { PageRequest } from "../utils/PageRequest.js";
 
 export interface RepositoryInterface<T, K, Filter> {
   save(entity: T): Promise<T | null>;                       
-  saveAll(entities: T[]): Promise<T[] | null>;
+  saveAll(entities: T[]): Promise<number | null>;
   findById(id: K): Promise<T | null>;
   findByFilter(filter: Filter): Promise<T[]>;                
   findAll(pageRequest: PageRequest<Filter>): Promise<T[]>;   

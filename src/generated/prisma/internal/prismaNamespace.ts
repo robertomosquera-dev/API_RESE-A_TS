@@ -824,7 +824,8 @@ export const UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  isEnable: 'isEnable'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -836,6 +837,7 @@ export const ReviewScalarFieldEnum = {
   score: 'score',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
+  isEnable: 'isEnable',
   movieId: 'movieId',
   userId: 'userId'
 } as const
@@ -850,6 +852,8 @@ export const MovieScalarFieldEnum = {
   duration: 'duration',
   year: 'year',
   rating: 'rating',
+  url: 'url',
+  isEnable: 'isEnable',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -861,6 +865,7 @@ export const ActorScalarFieldEnum = {
   id: 'id',
   firstName: 'firstName',
   lastName: 'lastName',
+  isEnable: 'isEnable',
   birthDate: 'birthDate',
   createdAt: 'createdAt'
 } as const
@@ -870,7 +875,8 @@ export type ActorScalarFieldEnum = (typeof ActorScalarFieldEnum)[keyof typeof Ac
 
 export const GenreScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  isEnable: 'isEnable'
 } as const
 
 export type GenreScalarFieldEnum = (typeof GenreScalarFieldEnum)[keyof typeof GenreScalarFieldEnum]
@@ -945,6 +951,13 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 

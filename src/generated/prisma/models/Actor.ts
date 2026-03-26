@@ -38,6 +38,7 @@ export type ActorMinAggregateOutputType = {
   id: number | null
   firstName: string | null
   lastName: string | null
+  isEnable: boolean | null
   birthDate: Date | null
   createdAt: Date | null
 }
@@ -46,6 +47,7 @@ export type ActorMaxAggregateOutputType = {
   id: number | null
   firstName: string | null
   lastName: string | null
+  isEnable: boolean | null
   birthDate: Date | null
   createdAt: Date | null
 }
@@ -54,6 +56,7 @@ export type ActorCountAggregateOutputType = {
   id: number
   firstName: number
   lastName: number
+  isEnable: number
   birthDate: number
   createdAt: number
   _all: number
@@ -72,6 +75,7 @@ export type ActorMinAggregateInputType = {
   id?: true
   firstName?: true
   lastName?: true
+  isEnable?: true
   birthDate?: true
   createdAt?: true
 }
@@ -80,6 +84,7 @@ export type ActorMaxAggregateInputType = {
   id?: true
   firstName?: true
   lastName?: true
+  isEnable?: true
   birthDate?: true
   createdAt?: true
 }
@@ -88,6 +93,7 @@ export type ActorCountAggregateInputType = {
   id?: true
   firstName?: true
   lastName?: true
+  isEnable?: true
   birthDate?: true
   createdAt?: true
   _all?: true
@@ -183,6 +189,7 @@ export type ActorGroupByOutputType = {
   id: number
   firstName: string
   lastName: string
+  isEnable: boolean
   birthDate: Date | null
   createdAt: Date
   _count: ActorCountAggregateOutputType | null
@@ -214,6 +221,7 @@ export type ActorWhereInput = {
   id?: Prisma.IntFilter<"Actor"> | number
   firstName?: Prisma.StringFilter<"Actor"> | string
   lastName?: Prisma.StringFilter<"Actor"> | string
+  isEnable?: Prisma.BoolFilter<"Actor"> | boolean
   birthDate?: Prisma.DateTimeNullableFilter<"Actor"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Actor"> | Date | string
   movies?: Prisma.MovieListRelationFilter
@@ -223,6 +231,7 @@ export type ActorOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   birthDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   movies?: Prisma.MovieOrderByRelationAggregateInput
@@ -235,6 +244,7 @@ export type ActorWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ActorWhereInput | Prisma.ActorWhereInput[]
   firstName?: Prisma.StringFilter<"Actor"> | string
   lastName?: Prisma.StringFilter<"Actor"> | string
+  isEnable?: Prisma.BoolFilter<"Actor"> | boolean
   birthDate?: Prisma.DateTimeNullableFilter<"Actor"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Actor"> | Date | string
   movies?: Prisma.MovieListRelationFilter
@@ -244,6 +254,7 @@ export type ActorOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   birthDate?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.ActorCountOrderByAggregateInput
@@ -260,6 +271,7 @@ export type ActorScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Actor"> | number
   firstName?: Prisma.StringWithAggregatesFilter<"Actor"> | string
   lastName?: Prisma.StringWithAggregatesFilter<"Actor"> | string
+  isEnable?: Prisma.BoolWithAggregatesFilter<"Actor"> | boolean
   birthDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Actor"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Actor"> | Date | string
 }
@@ -267,6 +279,7 @@ export type ActorScalarWhereWithAggregatesInput = {
 export type ActorCreateInput = {
   firstName: string
   lastName: string
+  isEnable?: boolean
   birthDate?: Date | string | null
   createdAt?: Date | string
   movies?: Prisma.MovieCreateNestedManyWithoutActorsInput
@@ -276,6 +289,7 @@ export type ActorUncheckedCreateInput = {
   id?: number
   firstName: string
   lastName: string
+  isEnable?: boolean
   birthDate?: Date | string | null
   createdAt?: Date | string
   movies?: Prisma.MovieUncheckedCreateNestedManyWithoutActorsInput
@@ -284,6 +298,7 @@ export type ActorUncheckedCreateInput = {
 export type ActorUpdateInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   movies?: Prisma.MovieUpdateManyWithoutActorsNestedInput
@@ -293,6 +308,7 @@ export type ActorUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   movies?: Prisma.MovieUncheckedUpdateManyWithoutActorsNestedInput
@@ -302,6 +318,7 @@ export type ActorCreateManyInput = {
   id?: number
   firstName: string
   lastName: string
+  isEnable?: boolean
   birthDate?: Date | string | null
   createdAt?: Date | string
 }
@@ -309,6 +326,7 @@ export type ActorCreateManyInput = {
 export type ActorUpdateManyMutationInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -317,6 +335,7 @@ export type ActorUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -335,6 +354,7 @@ export type ActorCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -347,6 +367,7 @@ export type ActorMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -355,6 +376,7 @@ export type ActorMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -408,6 +430,7 @@ export type NullableDateTimeFieldUpdateOperationsInput = {
 export type ActorCreateWithoutMoviesInput = {
   firstName: string
   lastName: string
+  isEnable?: boolean
   birthDate?: Date | string | null
   createdAt?: Date | string
 }
@@ -416,6 +439,7 @@ export type ActorUncheckedCreateWithoutMoviesInput = {
   id?: number
   firstName: string
   lastName: string
+  isEnable?: boolean
   birthDate?: Date | string | null
   createdAt?: Date | string
 }
@@ -448,6 +472,7 @@ export type ActorScalarWhereInput = {
   id?: Prisma.IntFilter<"Actor"> | number
   firstName?: Prisma.StringFilter<"Actor"> | string
   lastName?: Prisma.StringFilter<"Actor"> | string
+  isEnable?: Prisma.BoolFilter<"Actor"> | boolean
   birthDate?: Prisma.DateTimeNullableFilter<"Actor"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Actor"> | Date | string
 }
@@ -455,6 +480,7 @@ export type ActorScalarWhereInput = {
 export type ActorUpdateWithoutMoviesInput = {
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -463,6 +489,7 @@ export type ActorUncheckedUpdateWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -471,6 +498,7 @@ export type ActorUncheckedUpdateManyWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   firstName?: Prisma.StringFieldUpdateOperationsInput | string
   lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -510,6 +538,7 @@ export type ActorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   id?: boolean
   firstName?: boolean
   lastName?: boolean
+  isEnable?: boolean
   birthDate?: boolean
   createdAt?: boolean
   movies?: boolean | Prisma.Actor$moviesArgs<ExtArgs>
@@ -520,6 +549,7 @@ export type ActorSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   firstName?: boolean
   lastName?: boolean
+  isEnable?: boolean
   birthDate?: boolean
   createdAt?: boolean
 }, ExtArgs["result"]["actor"]>
@@ -528,6 +558,7 @@ export type ActorSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   id?: boolean
   firstName?: boolean
   lastName?: boolean
+  isEnable?: boolean
   birthDate?: boolean
   createdAt?: boolean
 }, ExtArgs["result"]["actor"]>
@@ -536,11 +567,12 @@ export type ActorSelectScalar = {
   id?: boolean
   firstName?: boolean
   lastName?: boolean
+  isEnable?: boolean
   birthDate?: boolean
   createdAt?: boolean
 }
 
-export type ActorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "birthDate" | "createdAt", ExtArgs["result"]["actor"]>
+export type ActorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "isEnable" | "birthDate" | "createdAt", ExtArgs["result"]["actor"]>
 export type ActorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   movies?: boolean | Prisma.Actor$moviesArgs<ExtArgs>
   _count?: boolean | Prisma.ActorCountOutputTypeDefaultArgs<ExtArgs>
@@ -557,6 +589,7 @@ export type $ActorPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     id: number
     firstName: string
     lastName: string
+    isEnable: boolean
     birthDate: Date | null
     createdAt: Date
   }, ExtArgs["result"]["actor"]>
@@ -986,6 +1019,7 @@ export interface ActorFieldRefs {
   readonly id: Prisma.FieldRef<"Actor", 'Int'>
   readonly firstName: Prisma.FieldRef<"Actor", 'String'>
   readonly lastName: Prisma.FieldRef<"Actor", 'String'>
+  readonly isEnable: Prisma.FieldRef<"Actor", 'Boolean'>
   readonly birthDate: Prisma.FieldRef<"Actor", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Actor", 'DateTime'>
 }

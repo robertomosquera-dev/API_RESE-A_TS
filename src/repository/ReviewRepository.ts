@@ -8,7 +8,7 @@ export default class ReviewRepository implements RepositoryInterface<ReviewModel
     async save(entity: ReviewModel): Promise<ReviewModel | null> {
         throw new Error("Method not implemented.");
     }
-    async saveAll(entities: ReviewModel[]): Promise<ReviewModel[] | null> {
+    async saveAll(entities: ReviewModel[]): Promise<number | null> {
         throw new Error("Method not implemented.");
     }
     async findById(id: number): Promise<ReviewModel | null> {

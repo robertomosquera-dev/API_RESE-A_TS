@@ -9,7 +9,7 @@ export default class GenreRepository implements RepositoryInterface<GenreModel,n
     async save(entity: GenreModel): Promise<GenreModel | null> {
         throw new Error("Method not implemented.");
     }
-    async saveAll(entities: GenreModel[]): Promise<GenreModel[] | null> {
+    async saveAll(entities: GenreModel[]): Promise<number | null> {
         throw new Error("Method not implemented.");
     }
     async findById(id: number): Promise<GenreModel | null> {

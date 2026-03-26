@@ -37,16 +37,19 @@ export type GenreSumAggregateOutputType = {
 export type GenreMinAggregateOutputType = {
   id: number | null
   name: string | null
+  isEnable: boolean | null
 }
 
 export type GenreMaxAggregateOutputType = {
   id: number | null
   name: string | null
+  isEnable: boolean | null
 }
 
 export type GenreCountAggregateOutputType = {
   id: number
   name: number
+  isEnable: number
   _all: number
 }
 
@@ -62,16 +65,19 @@ export type GenreSumAggregateInputType = {
 export type GenreMinAggregateInputType = {
   id?: true
   name?: true
+  isEnable?: true
 }
 
 export type GenreMaxAggregateInputType = {
   id?: true
   name?: true
+  isEnable?: true
 }
 
 export type GenreCountAggregateInputType = {
   id?: true
   name?: true
+  isEnable?: true
   _all?: true
 }
 
@@ -164,6 +170,7 @@ export type GenreGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type GenreGroupByOutputType = {
   id: number
   name: string
+  isEnable: boolean
   _count: GenreCountAggregateOutputType | null
   _avg: GenreAvgAggregateOutputType | null
   _sum: GenreSumAggregateOutputType | null
@@ -192,12 +199,14 @@ export type GenreWhereInput = {
   NOT?: Prisma.GenreWhereInput | Prisma.GenreWhereInput[]
   id?: Prisma.IntFilter<"Genre"> | number
   name?: Prisma.StringFilter<"Genre"> | string
+  isEnable?: Prisma.BoolFilter<"Genre"> | boolean
   movies?: Prisma.MovieListRelationFilter
 }
 
 export type GenreOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   movies?: Prisma.MovieOrderByRelationAggregateInput
 }
 
@@ -207,12 +216,14 @@ export type GenreWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.GenreWhereInput | Prisma.GenreWhereInput[]
   OR?: Prisma.GenreWhereInput[]
   NOT?: Prisma.GenreWhereInput | Prisma.GenreWhereInput[]
+  isEnable?: Prisma.BoolFilter<"Genre"> | boolean
   movies?: Prisma.MovieListRelationFilter
 }, "id" | "name">
 
 export type GenreOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
   _count?: Prisma.GenreCountOrderByAggregateInput
   _avg?: Prisma.GenreAvgOrderByAggregateInput
   _max?: Prisma.GenreMaxOrderByAggregateInput
@@ -226,42 +237,50 @@ export type GenreScalarWhereWithAggregatesInput = {
   NOT?: Prisma.GenreScalarWhereWithAggregatesInput | Prisma.GenreScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Genre"> | number
   name?: Prisma.StringWithAggregatesFilter<"Genre"> | string
+  isEnable?: Prisma.BoolWithAggregatesFilter<"Genre"> | boolean
 }
 
 export type GenreCreateInput = {
   name: string
+  isEnable?: boolean
   movies?: Prisma.MovieCreateNestedManyWithoutGenresInput
 }
 
 export type GenreUncheckedCreateInput = {
   id?: number
   name: string
+  isEnable?: boolean
   movies?: Prisma.MovieUncheckedCreateNestedManyWithoutGenresInput
 }
 
 export type GenreUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movies?: Prisma.MovieUpdateManyWithoutGenresNestedInput
 }
 
 export type GenreUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
   movies?: Prisma.MovieUncheckedUpdateManyWithoutGenresNestedInput
 }
 
 export type GenreCreateManyInput = {
   id?: number
   name: string
+  isEnable?: boolean
 }
 
 export type GenreUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type GenreUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type GenreListRelationFilter = {
@@ -277,6 +296,7 @@ export type GenreOrderByRelationAggregateInput = {
 export type GenreCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
 }
 
 export type GenreAvgOrderByAggregateInput = {
@@ -286,11 +306,13 @@ export type GenreAvgOrderByAggregateInput = {
 export type GenreMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
 }
 
 export type GenreMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  isEnable?: Prisma.SortOrder
 }
 
 export type GenreSumOrderByAggregateInput = {
@@ -337,11 +359,13 @@ export type GenreUncheckedUpdateManyWithoutMoviesNestedInput = {
 
 export type GenreCreateWithoutMoviesInput = {
   name: string
+  isEnable?: boolean
 }
 
 export type GenreUncheckedCreateWithoutMoviesInput = {
   id?: number
   name: string
+  isEnable?: boolean
 }
 
 export type GenreCreateOrConnectWithoutMoviesInput = {
@@ -371,20 +395,24 @@ export type GenreScalarWhereInput = {
   NOT?: Prisma.GenreScalarWhereInput | Prisma.GenreScalarWhereInput[]
   id?: Prisma.IntFilter<"Genre"> | number
   name?: Prisma.StringFilter<"Genre"> | string
+  isEnable?: Prisma.BoolFilter<"Genre"> | boolean
 }
 
 export type GenreUpdateWithoutMoviesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type GenreUncheckedUpdateWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type GenreUncheckedUpdateManyWithoutMoviesInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  isEnable?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 
@@ -421,6 +449,7 @@ export type GenreCountOutputTypeCountMoviesArgs<ExtArgs extends runtime.Types.Ex
 export type GenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isEnable?: boolean
   movies?: boolean | Prisma.Genre$moviesArgs<ExtArgs>
   _count?: boolean | Prisma.GenreCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["genre"]>
@@ -428,19 +457,22 @@ export type GenreSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type GenreSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isEnable?: boolean
 }, ExtArgs["result"]["genre"]>
 
 export type GenreSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  isEnable?: boolean
 }, ExtArgs["result"]["genre"]>
 
 export type GenreSelectScalar = {
   id?: boolean
   name?: boolean
+  isEnable?: boolean
 }
 
-export type GenreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["genre"]>
+export type GenreOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isEnable", ExtArgs["result"]["genre"]>
 export type GenreInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   movies?: boolean | Prisma.Genre$moviesArgs<ExtArgs>
   _count?: boolean | Prisma.GenreCountOutputTypeDefaultArgs<ExtArgs>
@@ -456,6 +488,7 @@ export type $GenrePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
+    isEnable: boolean
   }, ExtArgs["result"]["genre"]>
   composites: {}
 }
@@ -882,6 +915,7 @@ export interface Prisma__GenreClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface GenreFieldRefs {
   readonly id: Prisma.FieldRef<"Genre", 'Int'>
   readonly name: Prisma.FieldRef<"Genre", 'String'>
+  readonly isEnable: Prisma.FieldRef<"Genre", 'Boolean'>
 }
     
 
